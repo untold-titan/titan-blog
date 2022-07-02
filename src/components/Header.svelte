@@ -21,7 +21,7 @@
 		{#each pages as { route, name }}
 			<button
 				class="bg-lighter-blue rounded-md h-8  w-24 text-black hover:bg-light-blue hover:text-white mx-1.5"
-				on:click={() => routeToPage(route, true)}>{name}</button
+				on:click={() => routeToPage(route, false)}>{name}</button
 			>
 		{/each}
 	</div>
