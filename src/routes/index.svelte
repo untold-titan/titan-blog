@@ -1,2 +1,42 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+import Header from '../components/Header.svelte'
+import Project from '../components/Project.svelte';
+
+let visible = true;
+
+function projectsVisibility(){
+    visible = !visible
+}
+
+</script>
+
+<Header></Header>
+ <!--Content -->
+<div class="bg-medium-blue h-screen w-full">
+    <!-- Titles/Headers -->
+    <div class="container mx-auto w-fit">
+        <h1 class="text-white text-6xl pt-4">Titan, Software Intern</h1>
+        <h1 class="text-center text-white text-xl pt-1">C#, HTML, JS, React, JS, CSS, Java, C, Python</h1>
+        <h1 class="text-center text-white text-3xl pt-5">My 3 Favorite Projects</h1>
+    </div>
+    <div class="mx-auto w-fit pt-0.5">
+        <button class="mx-auto text-white"on:click={projectsVisibility}>
+            {#if visible}
+                Hide Projects
+            {:else}
+                Show Projects
+            {/if}
+        </button>
+    </div>
+
+    <div class="flex w-fit mx-auto pt-5">
+        {#if visible}
+            <Project content="Kirbo Bot. Built for Army Gang, by Army Gang"></Project>
+            <Project content="Army Gang, A discord community."></Project>
+            <Project content="Another projects"></Project>
+        {/if}
+    </div>
+    <div class="mx-auto w-fit">
+        <button class="bg-lighter-blue h-8 w-48 text-black rounded-md mt-5 hover:bg-light-blue hover:text-white">See more projects -></button>
+    </div>
+</div>
