@@ -25,14 +25,16 @@
 		"postcss": "^8.4.14",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
+		"stream": "^0.0.2",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
 		"svelte-preprocess": "^4.10.7",
 		"tailwindcss": "^3.1.4",
 		"tslib": "^2.3.1",
-		"typescript": "^4.7.2",
-		"stream":"^0.0.2",
-                "llhttp":"^1.0.0"
+		"typescript": "^4.7.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"llhttp": "^1.0.1"
+	}
 }
