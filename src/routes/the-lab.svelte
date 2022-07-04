@@ -1,11 +1,12 @@
 <script>
+   	import { fly, fade } from 'svelte/transition';
     import Header from '../components/Header.svelte';
 </script>
 
-<div>
+<div in:fly="{{x:2000,duration:1500}}" out:fade>
     <Header></Header>
-    
-    <div class="mx-auto w-fit text-center">
+
+    <div class="mx-auto w-fit text-center bg-medium-blue" >
         <h1 class="text-6xl text-white pt-4">The Lab</h1>
         <h1 class="text-4xl text-white pt-4">What is the Lab?</h1>
         <div class="w-1/2 mx-auto pt-3 text-white">
