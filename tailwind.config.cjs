@@ -9,10 +9,10 @@ module.exports = {
     },
     extend: {
       colors:{
-        'dark-blue': '#093d5d',
-        'medium-blue': '#1363DF',
-        'light-blue': '#47B5FF',
-        'lighter-blue': '#99e2ff',
+        'main': '#E8ECEB', // background
+        'secondary': '#E09E50', // Secondary
+        'tertiary': '#8CBDB9', // The third color
+        'accent': '#2D3E4E', //accent
         'white':'#FFFFFF',
         'black':'#000000'
       }

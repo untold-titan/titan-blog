@@ -3,7 +3,11 @@
     import {fly,fade} from 'svelte/transition';
 </script>
 
-<div class="bg-medium-blue h-screen" in:fly="{{x:2000, duration: 1500}}" out:fade>
+<head>
+	<title>Titan's Blog - About</title>
+</head>
+
+<div class="bg-main h-screen" in:fly="{{x:2000, duration: 1500}}" out:fade>
     <Header></Header>
     <h1>Who am I?</h1>
     <div>
