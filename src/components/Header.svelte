@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
+	import LoginIcon from '../Icons/login_icon.svg'
 
 	let sidebarVisible = false;
 
@@ -38,29 +39,39 @@
 			>☰</button
 		>
 	{/if}
+	<!-- Navigation Bar -->
 	{#if width > 1225}
 		<!-- Buttons -->
 		<div class="w-fit self-center">
-			{#each pages as { route, name }}
+			{#each pages as page}
 				<button
-					class="bg-tertiary  rounded-md h-8  w-24 text-accent hover:bg-accent hover:text-accent mx-1.5"
-					on:click={() => routeToPage(route, false)}>{name}</button>
+					class="bg-tertiary  rounded-md h-8  w-24 text-accent hover:bg-accent hover:text-tertiary mx-1.5"
+					on:click={() => routeToPage(page.route, false)}>{page.name}
+				</button>
 			{/each}
+			<button 
+			class="bg-tertiary  rounded-md h-8  w-8 text-black hover:bg-accent hover:text-accent mx-1.5 bg-login bg-no-repeat bg-center"
+			on:click={()=> routeToPage("the-lab/login",false)}
+			>
+				`<!-- For some reason, this button wont center unless theres text in it.  -->
+			</button>
 		</div>
 	{/if}
-	<!-- Navigation Bar -->
+
+
+	<!-- Navigation Side Menu -->
 	{#if sidebarVisible == true}
 	<div class="bg-secondary h-screen w-60 fixed right-0 flex flex-wrap" transition:fly="{{x:500, duration: 500}}" >
 		<ul class="pt-9 mx-auto">
 			{#each pages as page}
 			<li class="pt-5">
-				<button class="bg-tertiary rounded-md text-accent h-8 w-24" on:click={() => routeToPage(page.route, false)}>{page.name}</button>
+				<button class="bg-tertiary  rounded-md h-8  w-24 text-accent hover:bg-accent hover:text-accent mx-1.5" on:click={() => routeToPage(page.route, false)}>{page.name}</button>
 			</li>
 			{/each}
 		</ul>
+
 	</div>
 	{/if}
-
 </div>
 
 <!-- Navigation Menu -->

@@ -11,9 +11,6 @@
 	}
 
 	import { goto } from '$app/navigation';
-import Projects from './projects.svelte';
-import AboutMe from './about-me.svelte';
-import Layout from './__layout.svelte';
 	function routeToPage(route: string, replaceState: boolean) {
 		goto(`/${route}`, { replaceState });
 	}
@@ -45,7 +42,7 @@ import Layout from './__layout.svelte';
 		<h2 class="text-center text-accent text-4xl my-3">Software Intern</h2>
 	</div>
 	{#if visible}
-	<h1 class="text-center text-accent text-2xl pt-7">My 3 Favorite Projects</h1>
+	<h1 class="text-center text-accent text-2xl pt-7">My Favorite Projects</h1>
 	{/if}
 
 	<div class="flex w-fit mx-auto pt-5 flex-wrap">
@@ -70,7 +67,7 @@ import Layout from './__layout.svelte';
 		>
 	</div>
 	<div class="mx-auto w-fit pt-2">
-		<button class="mx-auto text-accent" on:click={projectsVisibility}>
+		<button class="underline mx-auto text-accent" on:click={projectsVisibility}>
 			{#if visible}
 				Hide Projects
 			{:else}

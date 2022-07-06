@@ -15,6 +15,9 @@ module.exports = {
         'accent': '#2D3E4E', //accent
         'white':'#FFFFFF',
         'black':'#000000'
+      },
+      backgroundImage: {
+        'login': "url('/src/Icons/login_icon.svg')",
       }
     }
   },

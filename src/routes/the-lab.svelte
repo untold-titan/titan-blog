@@ -19,7 +19,7 @@
         <h1 class="text-4xl text-accent pt-4">What kind of experiments?</h1>
         <div class="w-1/2 mx-auto pt-3 text-accent">
             Currently, there isnt very many experiments, but I am working on more. I plan to add a web3 experiment, and some more svelte experiments.
-            All of the code for these experiments is open source, and can be found on <a class="text-green-300 underline" href="https://github.com/cataclysm-interactive">My Github</a>
+            All of the code for these experiments is open source, and can be found on <a class="text-accent underline" href="https://github.com/cataclysm-interactive">My Github</a>
         </div>
     </div>
 </div>
