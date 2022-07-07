@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
-	import { fly, fade } from 'svelte/transition';
-	import LoginIcon from '../Icons/login_icon.svg'
+	import { signOut, type Auth } from 'firebase/auth';
+	import { getContext, onMount } from 'svelte';
+	import { fly } from 'svelte/transition';
+
+	const auth:Auth = getContext("auth")
+	const user = auth.currentUser
 
 	let sidebarVisible = false;
 
@@ -21,6 +24,16 @@
 
 	function toggleSidebar() {
 		sidebarVisible = !sidebarVisible;
+	}
+
+	function signOutUser(){
+		signOut(auth).then(() => {
+		  	// Sign-out successful.
+			routeToPage("",false)
+		}).catch((error) => {
+		  	// An error happened.
+			console.log(error.message)
+		});
 	}
 
 	onMount(() => {
@@ -49,12 +62,22 @@
 					on:click={() => routeToPage(page.route, false)}>{page.name}
 				</button>
 			{/each}
+			{#if user}
+				<!-- If the user is signed in, show the profile and log out button -->
+				<button class="bg-tertiary  rounded-md h-8  w-24 text-accent hover:bg-accent hover:text-tertiary mx-1.5" on:click={()=>routeToPage("the-lab/profile",false)}>{user.displayName}</button>
+				<button 
+					class="bg-tertiary  rounded-md h-8  w-8 text-black hover:bg-accent hover:text-accent mx-1.5 bg-logout bg-no-repeat bg-center"
+					on:click={()=> signOutUser()}>`
+				<!-- For some reason, this button wont center unless theres text in it.  -->
+				</button>
+			{:else}
+			<!-- If the user is logged out, show the login button -->
 			<button 
-			class="bg-tertiary  rounded-md h-8  w-8 text-black hover:bg-accent hover:text-accent mx-1.5 bg-login bg-no-repeat bg-center"
-			on:click={()=> routeToPage("the-lab/login",false)}
-			>
-				`<!-- For some reason, this button wont center unless theres text in it.  -->
+				class="bg-tertiary  rounded-md h-8  w-8 text-black hover:bg-accent hover:text-accent mx-1.5 bg-login bg-no-repeat bg-center"
+				on:click={()=> routeToPage("the-lab/login",false)}>`
+			<!-- For some reason, this button wont center unless theres text in it.  -->
 			</button>
+			{/if}
 		</div>
 	{/if}
 

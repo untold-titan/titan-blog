@@ -7,12 +7,10 @@
 	let email = '';
 	let errorText = '';
 	import { fly, fade } from 'svelte/transition';
-
-	import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
+	import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification, type Auth } from 'firebase/auth';
 	import { getContext, setContext } from 'svelte';
-	const app = getContext('app');
-	const auth = getAuth(app);
 
+	const auth:Auth = getContext("auth")
 
 	function createAccount() {
         // Checking that the user isn't an idiot
@@ -60,8 +58,10 @@
             .then(() => {
                 console.log("Sent user verification email!")
             });
-			setContext('user', user);
+			//I would set the user context, but I cant, cause you can only set context when the component is being initalized. (oh well)
+			//Firebase has a function that just lets me get the current logged in user, so I'll just do that
             console.log("Registered User! Redirecting to user page...")
+			routeToPage("the-lab/profile",false)
 		})
 		.catch((error) => {
             console.log("Error when making account")

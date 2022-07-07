@@ -1,5 +1,5 @@
 <script>
-    import Kirbo from '../Kirbo.png';
+    import Kirbo from '../Images/Kirbo.png';
     import Header from'../components/Header.svelte';
     import {fly,fade} from 'svelte/transition'
 </script>
@@ -7,9 +7,8 @@
 <head>
 	<title>Titan's Blog - Projects</title>
 </head>
-
-<div class=" h-screen" in:fly="{{x:2000, duration:1500}}" out:fade>
-    <Header></Header>
+<Header/>
+<div class="h-screen" in:fly="{{x:2000, duration:1500}}" out:fade>
     <!-- Kirbo -->
     <div class="xl:flex">
         <div class="self-center text-accent xs:text-xl xl:text-4xl p-3 text-center">

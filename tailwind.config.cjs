@@ -18,6 +18,7 @@ module.exports = {
       },
       backgroundImage: {
         'login': "url('/src/Icons/login_icon.svg')",
+        'logout':"url('/src/Icons/logout_icon.svg')"
       }
     }
   },

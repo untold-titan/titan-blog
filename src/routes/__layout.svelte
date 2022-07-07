@@ -1,18 +1,9 @@
 <script>
 	import '../app.css';
-	// Import the functions you need from the SDKs you need
 	import { initializeApp} from 'firebase/app';
-	import { getAnalytics } from 'firebase/analytics';
-	import { getPerformance } from 'firebase/performance';
-	import { onMount, setContext } from 'svelte';
+	import { setContext } from 'svelte';
+ 	import { getAuth } from 'firebase/auth';
 
-	onMount(() => {});
-
-	// TODO: Add SDKs for Firebase products that you want to use
-	// https://firebase.google.com/docs/web/setup#available-libraries
-
-	// Your web app's Firebase configuration
-	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 	const firebaseConfig = {
 		apiKey: 'AIzaSyCa185q7-I3xkLQZkOAJ5x9C04lV2wKRKk',
 		authDomain: 'titan-blog.firebaseapp.com',
@@ -25,8 +16,11 @@
 
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);
-
+	const auth = getAuth(app);
 	setContext('app', app);
+	setContext('auth',auth);
 </script>
 
 <slot />
+
+

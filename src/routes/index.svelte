@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Header from '../components/Header.svelte';
 	import Project from '../components/Project.svelte';
-	import KirboLogo from '../Kirby.png'
-	import catAPI from '../CataclysmAPI.png'
+	import KirboLogo from '../Images/Kirby.png'
+	import catAPI from '../Images/CataclysmAPI.png'
 	import { fly, fade } from 'svelte/transition';
 
 	let visible = true;
@@ -34,9 +34,9 @@
 	<title>Titan's Blog - Home</title>
 </head>
 
+<Header/>
 <!--Content -->
 <div class="bg-main"in:fly="{{x:2000,duration:1500}}" out:fade>
-	<Header />
 	<div class="container mx-auto w-fit border-b-2 border-solid border-accent">
 		<h1 class="text-center text-accent text-6xl my-4">Titan</h1>
 		<h2 class="text-center text-accent text-4xl my-3">Software Intern</h2>

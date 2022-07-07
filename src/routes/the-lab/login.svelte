@@ -2,14 +2,14 @@
 	import Header from '../../components/Header.svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { goto } from '$app/navigation';
-	import { setContext } from 'svelte';
-	import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+	import { getContext} from 'svelte';
+	import { signInWithEmailAndPassword, type Auth } from 'firebase/auth';
 
 	let email = '';
 	let password = '';
 	let errorText = '';
 
-	const auth = getAuth();
+	const auth:Auth = getContext("auth")
 
 	function routeToPage(route: string, replaceState: boolean) {
 		goto(`/${route}`, { replaceState });
@@ -35,8 +35,7 @@
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in
-				const user = userCredential.user;
-				setContext('user', user);
+				//Just redirect to the profile page that will get the user.
 				routeToPage('the-lab/profile', false);
 				// ...
 			})
