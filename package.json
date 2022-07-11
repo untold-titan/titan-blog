@@ -39,6 +39,7 @@
   "dependencies": {
     "@mui/icons-material": "^5.8.4",
     "firebase": "^9.8.4",
-    "llhttp": "^1.0.1"
+    "llhttp": "^1.0.1",
+    "three": "^0.142.0"
   }
 }
