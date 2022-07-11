@@ -36,7 +36,7 @@
 
 <Header/>
 <!--Content -->
-<div class="bg-main"in:fly="{{x:2000,duration:1500}}" out:fade>
+<div class="bg-main">
 	<div class="container mx-auto w-fit border-b-2 border-solid border-accent">
 		<h1 class="text-center text-accent text-6xl my-4">Titan</h1>
 		<h2 class="text-center text-accent text-4xl my-3">Software Intern</h2>

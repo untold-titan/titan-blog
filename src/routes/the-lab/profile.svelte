@@ -5,7 +5,8 @@
 	import Header from '../../components/Header.svelte';
 	import profile from '../../Images/profile.jpg';
 	import { fly, fade } from 'svelte/transition';
-    import LabProject from '../../components/lab-project.svelte';
+    import LabProject from '../../components/LabProject.svelte';
+import LabReview from '../../components/LabReview.svelte';
 
 	//
 	const auth: Auth = getContext('auth');
@@ -30,7 +31,7 @@
 <!-- Main profile place -->
 {#if user != null}
 <Header/>
-<div in:fly="{{x:2000,duration:1500}}" out:fade class="flex h-full">
+<div  class="flex h-[92%]">
 
     <div class="text-center w-1/5 ml-4 border-r border-solid border-gray-300">
         <div class="rounded-full overflow-hidden shadow-lg m-4 ">
@@ -46,14 +47,26 @@
         <!-- TODO: Add profile badges and neat stuff like that -->
     </div>
 
-    <div class="px-3 w-full">
+    <div class="px-3 w-4/5 mt-5">
         Recently viewed projects:
-        <div class="text-center h-1/3 w-full">
-            <lab-project></lab-project>
+        <div class="text-center h-1/3 flex overflow-x-scroll w-full">
+            <LabProject></LabProject>
+            <LabProject></LabProject>
+            <LabProject></LabProject>
+            <LabProject></LabProject>
+            <LabProject></LabProject>
+            <LabProject></LabProject>
+            <LabProject></LabProject>
+            <LabProject></LabProject>
         </div>
         Recently written reviews:
-        <div class="text-center h-1/3 w-full">
-            asdkjahdjasghdkjh
+        <div class="text-center h-1/3 flex overflow-x-scroll w-full">
+            <LabReview/>
+            <LabReview/>
+            <LabReview/>
+            <LabReview/>
+            <LabReview/>
+            <LabReview/>
         </div>
     </div>
 </div>

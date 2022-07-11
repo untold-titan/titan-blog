@@ -8,7 +8,7 @@
 	<title>Titan's Blog - Projects</title>
 </head>
 <Header/>
-<div class="h-screen" in:fly="{{x:2000, duration:1500}}" out:fade>
+<div class="h-screen" >
     <!-- Kirbo -->
     <div class="xl:flex">
         <div class="self-center text-accent xs:text-xl xl:text-4xl p-3 text-center">

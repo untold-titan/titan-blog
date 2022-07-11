@@ -8,7 +8,7 @@
 </head>
 
 <Header/>
-<div class="bg-main h-full" in:fly="{{x:2000, duration: 1500}}" out:fade>
+<div class="bg-main h-full" >
     <h1>Who am I?</h1>
     <div>
         I'm Titan, a software intern working at Arcurve Inc. in Calgary, AB. I have been programming for quite a while, and have used a variety of different technologies.

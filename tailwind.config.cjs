@@ -8,11 +8,15 @@ module.exports = {
       ...defaultTheme.screens,
     },
     extend: {
+      spacing: {
+        '128': '32rem',
+      },
       colors:{
         'main': '#E8ECEB', // background
         'secondary': '#E09E50', // Secondary
         'tertiary': '#8CBDB9', // The third color
         'accent': '#2D3E4E', //accent
+        'main-darker': '#d5dddb', //darker background
         'white':'#FFFFFF',
         'black':'#000000'
       },

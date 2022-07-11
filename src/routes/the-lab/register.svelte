@@ -77,9 +77,9 @@
 	}
 </script>
 
-<div in:fly={{ x: 2000, duration: 1500 }} out:fade>
+<div>
 	<Header />
-	<div class="table absolute top-12 left-0 h-full w-full bg-main">
+	<div class="table absolute top-12 left-0 h-[92%] w-full bg-main">
 		<div class="table-cell align-middle">
 			<div class="w-fit mx-auto">
 				<h1 class="text-4xl text-accent text-center">Register</h1>
