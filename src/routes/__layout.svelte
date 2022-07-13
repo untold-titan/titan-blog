@@ -3,6 +3,7 @@
 	import { initializeApp} from 'firebase/app';
 	import { setContext } from 'svelte';
  	import { getAuth } from 'firebase/auth';
+	import { getFirestore } from 'firebase/firestore'
 
 	const firebaseConfig = {
 		apiKey: 'AIzaSyCa185q7-I3xkLQZkOAJ5x9C04lV2wKRKk',
@@ -17,8 +18,10 @@
 	// Initialize Firebase
 	const app = initializeApp(firebaseConfig);
 	const auth = getAuth(app);
+	const db = getFirestore(app);
 	setContext('app', app);
 	setContext('auth',auth);
+	setContext('db',db)
 </script>
 
 <slot />

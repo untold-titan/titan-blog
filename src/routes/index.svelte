@@ -30,9 +30,9 @@
 
 </script>
 
-<head>
+<svelte:head>
 	<title>Titan's Blog - Home</title>
-</head>
+</svelte:head>
 
 <Header/>
 <!--Content -->

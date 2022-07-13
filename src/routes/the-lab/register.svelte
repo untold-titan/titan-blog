@@ -1,20 +1,22 @@
 <script lang="ts">
 	import Header from '../../components/Header.svelte';
+	import { goto } from '$app/navigation';
+	import { setDoc, doc, type Firestore } from 'firebase/firestore';
+	import { fly, fade } from 'svelte/transition';
+	import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification, type Auth, type User } from 'firebase/auth';
+	import { getContext, setContext } from 'svelte';
+
+	const auth:Auth = getContext("auth")
+	const db:Firestore = getContext("db")
 
 	let username = '';
 	let password = '';
 	let password2 = '';
 	let email = '';
 	let errorText = '';
-	import { fly, fade } from 'svelte/transition';
-	import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification, type Auth } from 'firebase/auth';
-	import { getContext, setContext } from 'svelte';
 
-	const auth:Auth = getContext("auth")
-
-	function createAccount() {
+	async function createAccount() {
         // Checking that the user isn't an idiot
-        
         if(username == ""){
             errorText = "Please enter a username!"
             return;
@@ -39,6 +41,9 @@
 			errorText = "Passwords don't match!";
             return;
 		}
+
+		let token = ""
+
         createUserWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in
@@ -58,20 +63,29 @@
             .then(() => {
                 console.log("Sent user verification email!")
             });
-			//I would set the user context, but I cant, cause you can only set context when the component is being initalized. (oh well)
-			//Firebase has a function that just lets me get the current logged in user, so I'll just do that
-            console.log("Registered User! Redirecting to user page...")
-			routeToPage("the-lab/profile",false)
+			
+
+			//Setting the user's firestore entry
+			createFirestoreEntry(user)
+            
 		})
 		.catch((error) => {
             console.log("Error when making account")
             console.log(error.message)
-            errorText = "An error occured!"
+            errorText = error.message
             return;
 		});
 	}
 
-    import { goto } from '$app/navigation';
+	async function createFirestoreEntry(user:User){
+		let token = await user.getIdToken();
+		await setDoc(doc(db, "users", token), {
+			recentlyViewed:""
+		});
+		console.log("Registered User! Redirecting to user page...")
+		routeToPage("the-lab/profile",false)
+	}
+
 	function routeToPage(route: string, replaceState: boolean) {
 		goto(`/${route}`, { replaceState });
 	}
