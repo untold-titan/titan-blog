@@ -1,38 +1,23 @@
-# create-svelte
+# My Personal Blog
+PLEASE NOTE:
+This project is in the process of being redesigned, and reworked. 
+Stay tuned for a updated version.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## What is this project?
+This project is built to be a site for me to post about experiments related to coding, and other things I work on.
+I also intended for it to be a way for me to host my web based experiments, and a way for friends/family/people interested in my work to see stuff I do, and rate it and give feedback. 
 
-## Creating a project
+## What techonologies are you using?
+This is a project that I ended up canning, because I made the scale too big for the inital release. 
+By that, I mean I added too many technologies, and ideas too fast.
 
-If you're seeing this, you've probably already done this step. Congrats!
+I used:
+- Svelte
+- SvelteKit
+- Vite (the best build tool imo)
+- Playwright (except I didn't write any tests)
+- Firebase (Gonna be switched to my own hosted pocketbase instead)
 
-```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## What's the roapmap look like?
+Good question. Since this project is archived now, I am probably going to be remaking this project at a later date.
+Check my profile's README for projects that are actively being worked on.
